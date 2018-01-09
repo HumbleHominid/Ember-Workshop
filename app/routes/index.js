@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import $ from 'jquery';
 
 export default Route.extend({
   // This is fired to fetch the model for the route

@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('anime');
+  this.route('buildapc');
+  this.route('food');
+  this.route('rarepuppers');
 });
 
 export default Router;

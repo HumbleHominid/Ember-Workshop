@@ -2,6 +2,28 @@
 {{! The hyphens are not necessary but it looks more like an html comment}}
 {{!-- application.hbs renders first on all routes.  --}}
 <h1 class="display-1">Ember Workshop</h1>
-<p class="lead">A tutorial application by Michael Fryer. This application fetched content from the subreddits r/anime, r/buildapc, r/food, and r/rarepuppers</p>
+<p class="lead">A tutorial application by Michael Fryer. This application fetched content from the subreddits r/anime, r/buildapc, r/food, and r/rarepuppers. Click the tabs below to navigate to different pages in the application.</p>
+
+{{#bs-navbar class="mb-3" as |navbar|}}
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "index"}}Home{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "anime"}}Anime{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "buildapc"}}Build A PC{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "food"}}Food{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "rarepuppers"}}Rare Puppers{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
 {{!-- Sub-components will render inside the `outlet` keyword in route handlebars files --}}
 {{outlet}}
