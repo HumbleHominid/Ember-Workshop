@@ -2,6 +2,7 @@ body {
   margin: 1%;
 }
 
+/* just modifying the amount of columns to display */
 .card-columns {
   column-count: 5;
 }

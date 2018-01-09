@@ -1,13 +1,34 @@
-{{!-- This is a handlebars comment --}}
-{{! The hyphens are not necessary but it looks more like an html comment}}
-{{!-- application.hbs renders first on all routes.  --}}
+{{! This is a handlebars comment }}
+{{!--
+  This is a multi-line handlebars comment
+--}}
+
+{{!--
+  application.hbs renders first on **all** routes.
+  This can be used for things like navigation, footers, etc. things you want
+  to persist across all routes should go here. Do note that this only renders
+  once,at application start, after that you have to manually reload it or set up
+  some events to get changes to propagate to this level
+--}}
+{{! Generic headed to display on any page }}
 <h1 class="display-1">Ember Workshop</h1>
+{{! Description of the application }}
 <p class="lead">A tutorial application by Michael Fryer. This application fetched content from the subreddits r/anime, r/buildapc, r/food, and r/rarepuppers. Click the tabs below to navigate to different pages in the application.</p>
 
+{{! Navbar that has links to all of the routes }}
 {{#bs-navbar class="mb-3" as |navbar|}}
   {{#navbar.content}}
     {{#navbar.nav as |nav|}}
       {{#nav.item}}
+        {{!--
+          This is a link to another page in ember. It is being wrapped by
+          the `nav` component but the sytax is similar for doing normal links
+          in ember. See syntax below:
+          {{#link-to "index"}}Home{{/link-to}}
+          Use this over the classic `a` tag. During compilation the `link-to`
+          gets turned into an `a` tag, but if you don't use `link-to` ember
+          will not set up the events that you need for some stuff to work
+        --}}
         {{#nav.link-to "index"}}Home{{/nav.link-to}}
       {{/nav.item}}
       {{#nav.item}}

@@ -1,3 +1,7 @@
+{{!--
+  this is a for loop in handlebars. can loop through arrays and js objects
+  this loop makes a `post-item` for-each item inside data
+--}}
 {{#each-in data as |key value|}}
   {{post-item id=key data=value}}
 {{/each-in}}
