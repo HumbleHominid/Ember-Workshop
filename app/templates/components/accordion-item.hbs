@@ -1,0 +1,14 @@
+{{#acc.item as |item|}}
+  {{#item.title}}
+    {{data.title}}
+    {{#if data.spoiler}}
+      <span class="badge badge-warning">Spoiler</span>
+    {{/if}}
+    {{#if data.over_18}}
+      <span class="badge badge-danger">NSFW</span>
+    {{/if}}
+  {{/item.title}}
+  {{#item.body}}
+    <p>Testing</p>
+  {{/item.body}}
+{{/acc.item}}

@@ -1,0 +1,43 @@
+{{!-- The `with` helper lets you alias some data to a variable name --}}
+{{#with data.data as |info|}}
+  <div onclick={{action (mut info.key)}}>
+    {{#if info.brand_safe}}
+      {{#if info.preview.enabled}}
+        {{#if (is-url info.thumbnail)}}
+          <img class="card-img-top" src={{info.thumbnail}} alt="Post Image Preview">
+        {{/if}}
+      {{/if}}
+    {{/if}}
+    <div class="card-body">
+        {{!-- Handles Creating the Card's title --}}
+        <h5 class="card-title">
+          {{info.title}}
+          {{#if info.spoiler}}
+            <span class="badge badge-warning">Spoiler</span>
+          {{/if}}
+          {{#if info.over_18}}
+            <span class="badge badge-danger">NSFW</span>
+          {{/if}}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">Author: <em>{{data.data.author}}</em></h6>
+    </div>
+  </div>
+
+  {{#bs-modal open=info.key as |modal|}}
+    {{#modal.header}}
+      <h3 class="modal-title">{{info.title}} <small class="text-muted">Author: <em>{{info.author}}</em></small></h3>
+    {{/modal.header}}
+    {{#modal.body}}
+      {{#if (is-link info.post_hint)}}
+        <p class="lead">Didn't to links</p>
+      {{else if (is-clip info.post_hint)}}
+        <p class="lead">Didn't do clips</p>
+      {{else if (is-image info.post_hint)}}
+        <img class="card-img-top" src={{info.preview.images.0.source.url}} alt="Failed to load image">
+      {{/if}}
+      {{#if info.selftext}}
+        {{markdown-to-html info.selftext}}
+      {{/if}}
+    {{/modal.body}}
+  {{/bs-modal}}
+{{/with}}
