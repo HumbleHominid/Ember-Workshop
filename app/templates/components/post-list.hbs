@@ -6,6 +6,11 @@
   {{post-item click=(action 'updateModalInfo' value.data) id=key data=value}}
 {{/each-in}}
 
+{{!--
+  If this is being rendered as a block, the children go here
+--}}
+{{yield}}
+
 {{! only displays if there is modal information available }}
 {{#if modalInfo}}
   {{#bs-modal onHidden=(action 'nullifyModalInfo') size="lg" as |modal|}}
@@ -13,6 +18,7 @@
       <h3 class="modal-title">{{modalInfo.title}} <small class="text-muted">Author: <em>{{modalInfo.author}}</em></small></h3>
     {{/modal.header}}
     {{#modal.body}}
+      {{! These are just here as an example of an if-else tree }}
       {{#if (is-link modalInfo.post_hint)}}
         <p class="lead">Didn't to links lul</p>
       {{else if (is-clip modalInfo.post_hint)}}

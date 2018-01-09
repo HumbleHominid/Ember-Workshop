@@ -1,5 +1,9 @@
-{{!-- The `with` helper lets you alias some data to a variable name --}}
+{{! The `with` helper lets you alias some data to a variable name }}
 {{#with data.data as |info|}}
+  {{!--
+    If there is a valid thumbnail, it is disaplyed at the top of
+    the card
+  --}}
   {{#if info.brand_safe}}
     {{#if info.preview.enabled}}
       {{#if (is-url info.thumbnail)}}
@@ -8,7 +12,7 @@
     {{/if}}
   {{/if}}
   <div class="card-body">
-      {{!-- Handles Creating the Card's title --}}
+      {{! Handles Creating the Card's Title }}
       <h5 class="card-title">
         {{info.title}}
         {{#if info.spoiler}}
@@ -18,6 +22,12 @@
           <span class="badge badge-danger">NSFW</span>
         {{/if}}
       </h5>
+      {{! Handles Creating the Card's Subtitle}}
       <h6 class="card-subtitle mb-2 text-muted">Author: <em>{{data.data.author}}</em></h6>
+
+      {{!--
+        If this is being rendered as a block, the children go here
+      --}}
+      {{yield}}
   </div>
 {{/with}}

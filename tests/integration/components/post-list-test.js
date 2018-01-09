@@ -5,7 +5,7 @@ moduleForComponent('post-list', 'Integration | Component | post list', {
   integration: true
 });
 
-test('it renders', function(assert) {
+test('default render', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
@@ -20,5 +20,5 @@ test('it renders', function(assert) {
     {{/post-list}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim().replace(/\s+/gi, ' '), 'template block text');
 });
