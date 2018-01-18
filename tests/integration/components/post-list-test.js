@@ -20,5 +20,5 @@ test('default render', function(assert) {
     {{/post-list}}
   `);
 
-  assert.equal(this.$().text().trim().replace(/\s+/gi, ' '), 'template block text');
+  assert.equal(this.$().text().trim().replace(/\s+/g, ' '), 'template block text');
 });

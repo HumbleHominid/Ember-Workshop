@@ -6,3 +6,20 @@ body {
 .card-columns {
   column-count: 5;
 }
+
+/* need this for progress rather than `style="width: 100%;"` */
+.full-width {
+  width: 100%;
+}
+
+.upvote .downvote {
+  color: #111;
+}
+
+.upvote {
+  background-color: orange;
+}
+
+.downvote {
+  background-color: cyan;
+}

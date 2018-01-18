@@ -6,3 +6,4 @@ export default Route.extend({
     return $.getJSON("https://www.reddit.com/r/rarepuppers/.json");
   }
 });
+

@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  classNames: [ "card" ],
+  tagName: "ul",
+  classNames: [ "list-group" ],
 
   data: null
 });

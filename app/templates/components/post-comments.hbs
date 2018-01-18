@@ -1,0 +1,13 @@
+{{#each-in data.children as |keyA valueA|}}
+  {{#with valueA.data as |info|}}
+    <li class="list-group-item">
+      Votes: <span class="badge {{if (is-above-zero info.score) 'upvote' 'downvote'}}">
+        {{info.score}}
+      </span>
+      {{markdown-to-html info.body}}
+      {{#each-in info.replies as |keyB valueB|}}
+        {{post-comments data=valueB}}
+      {{/each-in}}
+    </li>
+  {{/with}}
+{{/each-in}}
